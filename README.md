@@ -1,2 +1,2 @@
 # analysis-notes
-These are my notes on real analysis
+These are my notes on real analysis.
