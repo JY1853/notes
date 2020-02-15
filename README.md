@@ -1,2 +1,2 @@
-# analysis-notes
-These are my notes on real analysis.
+# math-notes
+These are my notes on generating functions.
