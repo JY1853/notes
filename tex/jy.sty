@@ -1,0 +1,89 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{jy}[2020/05/10 JY Pack]
+
+%This is my default preamble, to be inserted right after \documentclass and right before \begin{document}
+
+%Default packages
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english]{babel}
+
+%AMS math packages
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amsthm}
+
+%Graph plotting package
+\RequirePackage{pgfplots}
+
+%Margins package
+\RequirePackage[margin=0.8in]{geometry}
+
+%Misc
+\RequirePackage{physics}
+\RequirePackage{etoolbox}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\RequirePackage{chngcntr}
+
+%More graph plotting
+\usepgfplotslibrary{fillbetween}
+
+%Color package
+\RequirePackage{framed}
+
+%New command shortcuts.
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\opr}[1]{\operatorname{#1}}
+\newcommand{\veps}[0]{\varepsilon}
+\newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\Q}[0]{\mathbb{Q}}
+\newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\N}[0]{\mathbb{N}}
+\newcommand{\w}[0]{\omega}
+
+%New environments with two different theorem styles.
+
+%Plain theorem style has bolded theorem name, and italicized text
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{conj}{Conjecture}[subsection]
+\newtheorem{ax}{Axiom}[subsection]
+
+%Remark theorem style has italicized theorem name, and default text
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{eg}{Example}
+\newtheorem{ex}{Exercise}
+
+%Framing for definitions
+\newenvironment{defn}
+	{\begin{oframed}\begin{definition}}
+	{\end{definition}\end{oframed}}
+
+%New solutions environment
+\newenvironment{soln}
+  {\begin{proof}[Solution]}
+  {\end{proof}}
+
+%New claim environment
+\newenvironment{claim}
+  {\begin{proof}[Claim]}
+  {\end{proof}}
+\AtBeginEnvironment{claim}{\renewcommand{\qedsymbol}{}}{}{}
+
+%Framing for big claims
+\newenvironment{bclaim}
+	{\begin{oframed}
+	\begin{center}
+	\textbf{Big Claim}
+	\end{center} }{
+	\end{oframed}}
+
+%Better equation counting
+\counterwithin{equation}{section}
+\counterwithin{equation}{subsection}
+
+\endinput
